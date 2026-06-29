@@ -8,15 +8,12 @@ const {
 } = require('../controllers/employeeController');
 const { protect, authorize } = require('../middleware/auth');
 
-router.use(protect);
-router.use(authorize('admin'));
-
 router.route('/')
-  .get(getEmployees)
+  .get(protect, authorize('admin'), getEmployees)
   .post(createEmployee);
 
 router.route('/:id')
-  .put(updateEmployee)
-  .delete(deleteEmployee);
+  .put(protect, authorize('admin'), updateEmployee)
+  .delete(protect, authorize('admin'), deleteEmployee);
 
 module.exports = router;
