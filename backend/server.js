@@ -68,7 +68,7 @@ const startServer = async () => {
 
     // 2. Synchronize models with MySQL (creates/updates tables automatically)
     console.log('Synchronizing Sequelize models with MySQL database...');
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({ force: true });
     console.log('Sequelize models synchronized successfully.');
 
     // 3. Seed Admin
