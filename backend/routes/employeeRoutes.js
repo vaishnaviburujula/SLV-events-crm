@@ -9,11 +9,11 @@ const {
 const { protect, authorize } = require('../middleware/auth');
 
 router.route('/')
-  .get(protect, authorize('admin'), getEmployees)
+  .get(protect, getEmployees)
   .post(createEmployee);
 
 router.route('/:id')
-  .put(protect, authorize('admin'), updateEmployee)
-  .delete(protect, authorize('admin'), deleteEmployee);
+  .put(protect, updateEmployee)
+  .delete(protect, deleteEmployee);
 
 module.exports = router;

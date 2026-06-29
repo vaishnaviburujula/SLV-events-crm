@@ -25,9 +25,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { name: 'Calendar', path: '/calendar', icon: Calendar },
   ];
 
-  if (isAdmin) {
-    links.push({ name: 'Employees', path: '/employees', icon: UserCheck });
-  }
+  links.push({ name: 'Employees', path: '/employees', icon: UserCheck });
 
   links.push({ name: 'Profile & Settings', path: '/settings', icon: Settings });
 
